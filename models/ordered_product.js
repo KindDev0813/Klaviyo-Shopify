@@ -1,4 +1,5 @@
 const pushDataToKlaviyo = require('../utils/klaviyo');
+const getLogger = require('../utils/logger')
 
 const orderedProduct = (value) => {
   value.line_items.forEach((item) => { // Since there can be multiple items for each order, I loop through each item to make sure I call Klaviyo for each item
@@ -22,7 +23,7 @@ const orderedProduct = (value) => {
       },
       time: (new Date(value.processed_at).valueOf()) / 1000,
     };
-    pushDataToKlaviyo(payload)
+    pushDataToKlaviyo(payload) // To make the code more versatile, I would extract the pushDataToKlaviyo function from here and simply return a model object in each model file. I could then simply run pushDataToKlaviyo in its own file, while passing in the payload.
       .catch((error) => getLogger().error('error:', error));
   });
 };
