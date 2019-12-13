@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const pushDataToKlaviyo = require('../utils/klaviyo');
-const getLogger = require('../utils/logger')
+const getLogger = require('../utils/logger');
 
 const personalDetails = (key, details) => ({ //Using lodash, please read the paragraph at the end for explanation
   first_name: _.get(details, `${key}.first_name`, ''),

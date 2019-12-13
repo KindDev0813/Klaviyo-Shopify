@@ -1,5 +1,5 @@
 const pushDataToKlaviyo = require('../utils/klaviyo');
-const getLogger = require('../utils/logger')
+const getLogger = require('../utils/logger');
 
 const orderedProduct = (value) => {
   value.line_items.forEach((item) => { // Since there can be multiple items for each order, I loop through each item to make sure I call Klaviyo for each item
